@@ -1,16 +1,13 @@
 package miniwindows;
 
 import Usuarios.*;
-import cmd.principal;
-import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
-import com.mycompany.miniredsocial.*;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import reproductor.propio.Reproductor;
-import texteditor.*;
+
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -68,7 +65,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
@@ -170,7 +166,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addContainerGap(623, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 810));
+        jPanel1.add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -250, 1550, 810));
 
         jMenuBar1.setForeground(new java.awt.Color(240, 240, 240));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(1093, 100));
@@ -249,16 +245,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu7);
 
-        jMenu3.setForeground(new java.awt.Color(240, 240, 240));
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rsz_screenshot_7.png"))); // NOI18N
-        jMenu3.setText("MiniRed");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu3);
-
         jMenu2.setForeground(new java.awt.Color(240, 240, 240));
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/gnome_application_exit.png"))); // NOI18N
         jMenu2.setText("Salir");
@@ -281,7 +267,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1550, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -351,7 +337,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu6MouseClicked
 
     private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
-        principal cmd = new principal();
+        principals cmd = new principals();
         cmd.nombre=this.nombreIngresado;
         cmd.tipo = this.tipoIngresado;
         Escritorio.add(cmd);
@@ -366,15 +352,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         spotify.show();
     }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        // TODO add your handling code here:
-
-        LogIn mp = new LogIn(Escritorio, nombreIngresado,tipoIngresado);
-
-        mp.setVisible(true);
-        Escritorio.add(mp);
-    }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
            Reproductor spotify = new Reproductor();
@@ -394,7 +371,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        principal cmd = new principal();
+        principals cmd = new principals();
         cmd.nombre=this.nombreIngresado;
         cmd.tipo = this.tipoIngresado;
         Escritorio.add(cmd);
@@ -402,10 +379,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Imagenes XD = new Imagenes();
+        visor XD = new visor();
 
         Escritorio.add(XD);
-        XD.show();
+        XD.showImage(contra);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -441,7 +418,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;

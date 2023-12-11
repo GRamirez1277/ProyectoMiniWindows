@@ -4,9 +4,8 @@
  */
 package miniwindows;
 
-import Usuarios.ProcesoLogin;
-import Usuarios.Users;
-import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
+
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -30,9 +29,9 @@ public class Inicio extends javax.swing.JFrame {
     public File file = null;
 
     public Inicio() {
-        FlatDraculaIJTheme.setup();
+     
         this.setUndecorated(true);
-
+         
         initComponents();
         this.setBackground(new Color(9, 26, 52));
         imgPerfil.setIcon(imagenlogo);
@@ -224,7 +223,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
-
+        System.exit(0);
         this.dispose();
 
     }//GEN-LAST:event_BotonSalirActionPerformed

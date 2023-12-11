@@ -133,7 +133,7 @@ class fondoInicio extends JPanel{
         private Image fondo;
         
         public void paint(Graphics g){
-            fondo=new ImageIcon(getClass().getResource("/sesionTwitter/Imagenes/MenuInicio.png")).getImage();
+            fondo=new ImageIcon(getClass().getResource("/miniwindows/Imagenes/MenuInicio.png")).getImage();
             
             g.drawImage(fondo,0,0,getWidth(),getHeight(),this);
             
