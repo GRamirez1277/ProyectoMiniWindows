@@ -17,6 +17,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author USER
  */
 public class visor extends javax.swing.JFrame {
+    private String tipo;
+    private String nombre;
 
     /**
      * Creates new form visor
@@ -27,6 +29,8 @@ public class visor extends javax.swing.JFrame {
     
     public visor() {
         initComponents();
+        tipo = "Administrador";
+        nombre = "NombreUsuario";
     }
     
     public static boolean isImage(String nombre){
@@ -64,11 +68,11 @@ public class visor extends javax.swing.JFrame {
         imagenIzquierda = new javax.swing.JButton();
         imagenDerecha = new javax.swing.JButton();
         imagenActual = new javax.swing.JLabel();
+        salirBoton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         opcionCarpeta = new javax.swing.JMenu();
         abrirImagen = new javax.swing.JMenuItem();
         abrirCarpeta = new javax.swing.JMenuItem();
-        salir = new javax.swing.JMenu();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -76,7 +80,6 @@ public class visor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(650, 500));
 
         imagenIzquierda.setBackground(new java.awt.Color(255, 255, 255));
         imagenIzquierda.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\Imágenes descargadas\\Mini Windows\\Visor de Imagenes\\Izquierda.png")); // NOI18N
@@ -100,6 +103,14 @@ public class visor extends javax.swing.JFrame {
             }
         });
 
+        salirBoton.setBackground(new java.awt.Color(255, 255, 255));
+        salirBoton.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\pngegg.png")); // NOI18N
+        salirBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirBotonActionPerformed(evt);
+            }
+        });
+
         opcionCarpeta.setText("Archivo");
 
         abrirImagen.setText("Abrir imagen");
@@ -120,14 +131,6 @@ public class visor extends javax.swing.JFrame {
 
         jMenuBar1.add(opcionCarpeta);
 
-        salir.setText("Salir");
-        salir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                salirMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(salir);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,16 +144,21 @@ public class visor extends javax.swing.JFrame {
                 .addComponent(imagenDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addComponent(imagenActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(salirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addComponent(salirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imagenActual, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imagenDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenIzquierda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92))
         );
 
@@ -167,34 +175,37 @@ public class visor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_imagenIzquierdaActionPerformed
 
-    private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        visor v=new visor();
-        v.dispose();
-    }//GEN-LAST:event_salirMouseClicked
-
     private void abrirCarpetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirCarpetaActionPerformed
-        imagePaths=new LinkedList<String>();
-        String direccion="";
-        JFileChooser selectorArchivos=new JFileChooser();
-        selectorArchivos.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int seleccion=selectorArchivos.showOpenDialog(this);
-        if(seleccion!=JFileChooser.CANCEL_OPTION){
-            File direccionSeleccionada=selectorArchivos.getSelectedFile();
-            direccion=selectorArchivos.getSelectedFile().getPath();
-            File folder=new File(direccion);
-            if(folder.exists()&&folder.isDirectory()){
-                File[] archivos=folder.listFiles();
-                if(archivos!=null){
-                    for(File archivo:archivos){
-                        if(archivo.isFile()&&isImage(archivo.getName()))
-                            imagePaths.add(archivo.getAbsolutePath());
-                    }
+        imagePaths = new LinkedList<String>();
+    String direccion = "";
+    JFileChooser selectorArchivos = new JFileChooser();
+    selectorArchivos.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    
+    // Configurar el directorio inicial según el tipo de usuario
+    if (tipo.equals("Administrador")) {
+        selectorArchivos.setCurrentDirectory(new File("Z"));
+    } else {
+        selectorArchivos.setCurrentDirectory(new File("Z/" + nombre));
+    }
+    
+    int seleccion = selectorArchivos.showOpenDialog(this);
+    if (seleccion != JFileChooser.CANCEL_OPTION) {
+        File direccionSeleccionada = selectorArchivos.getSelectedFile();
+        direccion = selectorArchivos.getSelectedFile().getPath();
+        File folder = new File(direccion);
+        if (folder.exists() && folder.isDirectory()) {
+            File[] archivos = folder.listFiles();
+            if (archivos != null) {
+                for (File archivo : archivos) {
+                    if (archivo.isFile() && isImage(archivo.getName()))
+                        imagePaths.add(archivo.getAbsolutePath());
                 }
             }
-            String nombre=imagePaths.get(index);
-            showImage(nombre);
-            enableDisable();
         }
+        String nombre = imagePaths.get(index);
+        showImage(nombre);
+        enableDisable();
+    }
     }//GEN-LAST:event_abrirCarpetaActionPerformed
 
     private void abrirImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirImagenActionPerformed
@@ -220,6 +231,10 @@ public class visor extends javax.swing.JFrame {
             enableDisable();
         }
     }//GEN-LAST:event_imagenDerechaActionPerformed
+
+    private void salirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBotonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_salirBotonActionPerformed
 
     private void enableDisable(){
         if(index-1<=0)
@@ -275,6 +290,6 @@ public class visor extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu opcionCarpeta;
-    private javax.swing.JMenu salir;
+    private javax.swing.JButton salirBoton;
     // End of variables declaration//GEN-END:variables
 }

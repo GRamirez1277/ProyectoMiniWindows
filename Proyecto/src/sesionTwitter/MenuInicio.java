@@ -28,6 +28,8 @@ public class MenuInicio extends javax.swing.JFrame {
 
         botonRegistro = new javax.swing.JButton();
         botonSesion = new javax.swing.JButton();
+        minimizarBoton = new javax.swing.JButton();
+        salirBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +55,22 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
 
+        minimizarBoton.setBackground(new java.awt.Color(255, 255, 255));
+        minimizarBoton.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\pngegg (1).png")); // NOI18N
+        minimizarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minimizarBotonActionPerformed(evt);
+            }
+        });
+
+        salirBoton.setBackground(new java.awt.Color(255, 255, 255));
+        salirBoton.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\pngegg.png")); // NOI18N
+        salirBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -63,15 +81,23 @@ public class MenuInicio extends javax.swing.JFrame {
                     .addComponent(botonRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(117, 117, 117))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(minimizarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(salirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(291, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(minimizarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(botonRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
+                .addGap(121, 121, 121))
         );
 
         pack();
@@ -89,6 +115,14 @@ public class MenuInicio extends javax.swing.JFrame {
         op.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonSesionActionPerformed
+
+    private void minimizarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizarBotonActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_minimizarBotonActionPerformed
+
+    private void salirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBotonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_salirBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,6 +162,8 @@ public class MenuInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegistro;
     private javax.swing.JButton botonSesion;
+    private javax.swing.JButton minimizarBoton;
+    private javax.swing.JButton salirBoton;
     // End of variables declaration//GEN-END:variables
 class fondoInicio extends JPanel{
         private Image fondo;
